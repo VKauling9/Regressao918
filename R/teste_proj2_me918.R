@@ -1,7 +1,7 @@
 library(tidyverse)
-library(regressao)
+library(readr)
 
-db <- read_csv("//smb/ra175829/Downloads/archive (1)/WineQT.csv",
+db <- read_csv("C:/Users/Mani/Downloads/dados.csv",
                col_types = cols(`fixed acidity` = col_number(),
                                 `volatile acidity` = col_number(),
                                 `citric acid` = col_number(), `residual sugar` = col_number(),
