@@ -1,1 +1,9 @@
 .Rproj.user
+<<<<<<< HEAD
+=======
+.Rhistory
+.Rdata
+.httr-oauth
+.DS_Store
+.quarto
+>>>>>>> b15ccebb2e4e78d4aedcabf30c489acc1b3d9dbf

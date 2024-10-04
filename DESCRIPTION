@@ -12,3 +12,5 @@ RoxygenNote: 7.3.2
 Imports: 
     dplyr,
     ggplot2
+URL: https://github.com/VKauling9/Regressao918
+BugReports: https://github.com/VKauling9/Regressao918/issues

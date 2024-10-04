@@ -1,5 +1,3 @@
-library(tidyverse)
-library(readr)
 
 db <- read_csv("C:/Users/Mani/Downloads/dados.csv",
                col_types = cols(`fixed acidity` = col_number(),
@@ -15,3 +13,11 @@ load_all()
 
 regressao(Y=c("fixed acidity","citric acid"),X="quality",db=db)
 
+
+ggplot(aes(x = preditos, y = Y)) +
+  geom_point(color = "blue", size = 2) +
+  geom_vline(xintercept = predic_linear, linetype = "dashed", color = "red", linewidth = 1) +
+  labs(title = "Valores Preditos vs Observados",
+       x = "Valores Preditos",
+       y = "Valores Observados") +
+  theme_bw()
