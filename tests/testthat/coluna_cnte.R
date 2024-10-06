@@ -5,4 +5,3 @@ test_that("Coluna constante na variável preditora", {
 })
 
 
-
