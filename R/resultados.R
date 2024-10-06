@@ -4,7 +4,7 @@
 #' @param X
 #' @param db
 #'
-#' @return
+#' @return Lista com os coeficientes, os valores preditos,
 #'
 #' @export
 #'
@@ -32,7 +32,7 @@ regressao <- function(Y, X, db){
     dataf <- as.data.frame(cbind(Y, preditos))
     colnames(dataf) <- c("Observados", "Preditos")
 
-    grafico <- ggplot2::ggplot(dataf, aes(x = Preditos, y = Observados)) +
+    grafico <- ggplot(dataf, aes(x = Preditos, y = Observados)) +
       geom_point(color = "blue", size = 2) +
       geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed") +
       labs(title = "Valores Preditos vs Observados",
@@ -46,3 +46,6 @@ regressao <- function(Y, X, db){
               Residuos = residuos,
               Grafico = grafico))
 }
+
+
+

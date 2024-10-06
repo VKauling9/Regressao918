@@ -1,6 +1,6 @@
-test_that("Regression handles non-full rank matrix", {
-  X <- matrix(c(1, 2, 3, 4, 2, 4, 6, 8), ncol = 2)  # Second column is a multiple of the first
-  Y <- c(2, 4, 6, 8)
+test_that("Matriz sem posto completo", {
+  devtools::load_all()
+  dados <- data.frame(Y = c(2, 4, 6, 8), X = c(1, 2, 3, 4))
 
-  expect_error(my_regression(X, Y), "singular")  # Expect an error due to singular matrix
+  expect_error(regressao("Y", "X", dados), "singular")
 })
