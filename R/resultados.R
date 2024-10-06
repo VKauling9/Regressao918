@@ -5,34 +5,44 @@
 #' @param db
 #'
 #' @return
+#'
 #' @export
 #'
 #' @examples
-  regressao <- function(Y, X, db){
+regressao <- function(Y, X, db){
 
-    variaveis_numericas<-(sapply(db[c(X,Y)], is.numeric))
-    if (all(variaveis_numericas) == FALSE) {
-      false <- names(variaveis_numericas[!variaveis_numericas])
-      stop(paste("Erro: As seguintes variáveis preditoras não são numéricas:",
-                 paste(false, collapse = ", ")))
-    } else{
-      db <- drop_na(db)
+  variaveis_numericas<-(sapply(db[c(X,Y)], is.numeric))
+  if (all(variaveis_numericas) == FALSE) {
+    false <- names(variaveis_numericas[!variaveis_numericas])
+    stop(paste("Erro: As seguintes variáveis preditoras não são numéricas:",
+               paste(false, collapse = ", ")))
+  } else{
+    db <- drop_na(db)
 
-      Y <- as.matrix(db[Y])
-      X <- as.matrix(db[X])
-      matX <- cbind(1, X)
+    Y <- as.matrix(db[Y])
+    X <- as.matrix(db[X])
+    matX <- cbind(1, X)
 
-      betas <- solve(t(matX) %*% matX) %*% (t(matX) %*% Y)
+    betas <- solve(t(matX) %% matX) %% (t(matX) %*% Y)
 
-      preditos <- matX %*% betas
+    preditos <- matX %*% betas
 
-      residuos <- Y - preditos
+    residuos <- Y - preditos
 
+    dataf <- as.data.frame(cbind(Y, preditos))
+    colnames(dataf) <- c("Observados", "Preditos")
 
-      modelo <- list(Betas = as.vector(betas),
-                     Valores_preditos = as.vector(preditos),
-                     Residuos = as.vector(residuos))
+    grafico <- ggplot(dataf, aes(x = Preditos, y = Observados)) +
+      geom_point(color = "blue", size = 2) +
+      geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed") +
+      labs(title = "Valores Preditos vs Observados",
+           x = "Valores Preditos",
+           y = "Valores Observados") +
+      theme_bw()
 
-    }
-    return(modelo)
   }
+  return(list(Betas = betas,
+              Valores_preditos = preditos,
+              Residuos = residuos,
+              Grafico = grafico))
+}
