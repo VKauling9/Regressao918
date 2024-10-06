@@ -2,7 +2,7 @@ test_that("Overfitting dos dados no modelo", {
   dados <- data.frame(Y = c(14, 17, 20), X = c(4, 5, 6))
 
 
-   modelo <- regressao("X", "Y", dados)
+   modelo <- regressao918("X", "Y", dados)
 
 
   expect_equal(as.vector(modelo$Residuos),

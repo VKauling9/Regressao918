@@ -9,7 +9,7 @@
 #' @param X Vetor de nomes, entre aspas duplas, das variáveis preditoras, identico aos nomes das colunas do banco de dados utilizado
 #' @param db Nome do banco de dados
 #'
-#' @return Lista com os coeficientes estimados, os valores preditos, resíduos e gráfico (valores Observados vs. Valores Preditos)
+#' @return Lista com os coeficientes estimados, os valores preditos, resíduos e gráfico (Valores Preditos vs. Valores Observados)
 #'
 #' @examples
 #'
@@ -19,7 +19,7 @@
 #' @import dplyr
 #' @import tidyr
 #' @export
-regressao <- function(Y, X, db){
+regressao918 <- function(Y, X, db){
 
 variaveis_numericas<-(sapply(db[c(X,Y)], is.numeric))
 if (all(variaveis_numericas) == FALSE) {

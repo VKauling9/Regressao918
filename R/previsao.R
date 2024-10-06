@@ -7,6 +7,9 @@
 #' @return Vetor com os valores preditos pela função de regressão
 #'
 #' @examples
+#'
+#' predicao(0.6, modelo)
+#'
 #' @export
 predicao <- function(X_novo, modelo){
 

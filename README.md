@@ -6,47 +6,60 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of regressao is to …
+O objetivo do pacote `regressao` é realizar uma regressão linear,
+estimando os coeficientes e obtendo valores preditos, resíduos e um
+gráfico de dispersão (Valores Preditos vs. Valores Observados)
 
-## Installation
+## Instalação
 
-You can install the development version of regressao from
-[GitHub](https://github.com/) with:
+É possível instalar o pacote `regressao` através do link
+[GitHub](https://github.com/) com:
 
 ``` r
 # install.packages("pak")
 pak::pak("VKauling9/Regressao918")
 ```
 
-## Example
+## Exemplo
 
-This is a basic example which shows you how to solve a common problem:
+Este é um exemplo básico que mostra como aplicar a função regressao do
+pacote `regressao`:
 
 ``` r
 library(regressao)
-## basic example code
+
+modelo <- regressao("sim_Y", "sim_X", sim_dados)
+
+modelo$Betas
+#>             sim_Y
+#>        0.14761510
+#> sim_X -0.03507862
+head(modelo$Valores_preditos)
+#>           sim_Y
+#> [1,] 0.16727581
+#> [2,] 0.15568941
+#> [3,] 0.09293776
+#> [4,] 0.14514176
+#> [5,] 0.14307986
+#> [6,] 0.08745299
+head(modelo$Residuos)
+#>            sim_Y
+#> [1,]  0.08604271
+#> [2,] -0.18423616
+#> [3,] -0.13580822
+#> [4,]  1.22346052
+#> [5,] -0.36885085
+#> [6,]  1.42901762
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Já a função predicao pode ser utilizada, após a execução da função acima
+salvando-a em um objeto, da seguinte forma:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+predicao(0.6, modelo)
+#>           [,1]
+#> [1,] 0.1265679
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+Exemplo de chamado referente ao modelo ajustado acima:
+<img src="man/figures/README-grafico-1.png" width="100%" />

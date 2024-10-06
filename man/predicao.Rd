@@ -17,3 +17,8 @@ Vetor com os valores preditos pela função de regressão
 \description{
 Predição de novos valores
 }
+\examples{
+
+predicao(0.6, modelo)
+
+}
