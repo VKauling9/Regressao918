@@ -11,9 +11,13 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
     dplyr,
-    ggplot2
+    ggplot2,
+    tidyr
 URL: https://github.com/VKauling9/Regressao918
 BugReports: https://github.com/VKauling9/Regressao918/issues
 Depends: 
     R (>= 2.10)
 LazyData: true
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

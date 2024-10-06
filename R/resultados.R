@@ -17,13 +17,13 @@ regressao <- function(Y, X, db){
     stop(paste("Erro: As seguintes variáveis preditoras não são numéricas:",
                paste(false, collapse = ", ")))
   } else{
-    db <- drop_na(db)
+    db <- tidyr::drop_na(db)
 
     Y <- as.matrix(db[Y])
     X <- as.matrix(db[X])
     matX <- cbind(1, X)
 
-    betas <- solve(t(matX) %% matX) %% (t(matX) %*% Y)
+    betas <- solve(t(matX) %*% matX) %*% (t(matX) %*% Y)
 
     preditos <- matX %*% betas
 
@@ -32,7 +32,7 @@ regressao <- function(Y, X, db){
     dataf <- as.data.frame(cbind(Y, preditos))
     colnames(dataf) <- c("Observados", "Preditos")
 
-    grafico <- ggplot(dataf, aes(x = Preditos, y = Observados)) +
+    grafico <- ggplot2::ggplot(dataf, aes(x = Preditos, y = Observados)) +
       geom_point(color = "blue", size = 2) +
       geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed") +
       labs(title = "Valores Preditos vs Observados",
@@ -44,5 +44,5 @@ regressao <- function(Y, X, db){
   return(list(Betas = betas,
               Valores_preditos = preditos,
               Residuos = residuos,
-              Grafico = grafico))
+              Grafico = grafico))
 }

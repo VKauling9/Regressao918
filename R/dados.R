@@ -5,4 +5,4 @@ sim_Y <- 1 + 2*sim_X[,1] + 3*sim_X[,2] + rnorm(50)
 sim_dados <- as.data.frame(cbind(sim_X, sim_Y))
 colnames(sim_dados) <- c("sim_X", "sim_Y")
 
-usethis::use_data(sim_dados)
+usethis::use_data(sim_dados, overwrite = TRUE)
