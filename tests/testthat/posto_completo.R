@@ -1,6 +1,7 @@
 test_that("Matriz sem posto completo", {
-  devtools::load_all()
-  dados <- data.frame(Y = c(2, 4, 6, 8), X = c(1, 2, 3, 4))
+  dados <- data.frame(Y = c(2, 4, 5, 7), X = c(4, 8, 10, 14))
 
-  expect_error(regressao("Y", "X", dados), "singular")
+  modelo <- regressao("Y", "X", dados)
+
+  expect_equal(modelo$Betas[1,], 0)
 })

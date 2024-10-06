@@ -7,6 +7,7 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
+library(ggplot2)
 library(regressao)
 
 test_check("regressao")

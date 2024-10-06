@@ -1,4 +1,4 @@
-#' Title
+#' Title Regressão Linear
 #'
 #' @param Y
 #' @param X
