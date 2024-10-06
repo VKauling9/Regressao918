@@ -1,19 +1,22 @@
-#' Title Predição de novos valores
+#' @title Predição de novos valores
+#' @rdname predicao
 #'
 #' @param X_novo Vetor com novos valores
 #' @param modelo Objeto que contém o resultado da função de regressão do pacote `regressao`
 #'
 #' @return Vetor com os valores preditos pela função de regressão
+#'
+#' @examples
 #' @export
-predisao <- function(X_novo, modelo){
+predicao <- function(X_novo, modelo){
 
   b <- modelo$Betas[-1,]
 
-  predisao <- modelo$Betas[1,] + X_novo %*% b
+  predicao <- modelo$Betas[1,] + X_novo %*% b
 
-  return(predisao)
+  return(predicao)
 }
-#' @examples
+
 
 
 

@@ -1,4 +1,9 @@
-#' Title Regressão Linear
+#' @title Regressão Linear
+#'
+#' @description
+#'
+#' Função que recebe um data frame e, pelo menos, o nome de duas colunas deste.
+#' Aplica uma regressão linear entre as variáveis especificadas.
 #'
 #' @param Y Nome, entre aspas duplas, da variável resposta, identico ao nome da coluna do banco de dados utilizado
 #' @param X Vetor de nomes, entre aspas duplas, das variáveis preditoras, identico aos nomes das colunas do banco de dados utilizado
@@ -6,6 +11,13 @@
 #'
 #' @return Lista com os coeficientes estimados, os valores preditos, resíduos e gráfico (valores Observados vs. Valores Preditos)
 #'
+#' @examples
+#'
+#' regressao("sim_Y", "sim_X", sim_dados)
+#'
+#' @import ggplot2
+#' @import dplyr
+#' @import tidyr
 #' @export
 regressao <- function(Y, X, db){
 
@@ -44,5 +56,7 @@ return(list(Betas = betas,
             Residuos = residuos,
             Grafico = grafico))
 }
-#'
-#' @examples
+
+
+
+
